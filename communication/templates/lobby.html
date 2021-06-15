@@ -1548,21 +1548,23 @@
             // set with an string to default value, "John Doe" by example
 
             localDisplayName = document.getElementById("namechange-field-start-dialog").value;
-            console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" + localDisplayName);
 
             var domain = "meet.jit.si";
             var options = {
                 roomName: '{{.LobbyID}}',
                 width: document.getElementById("statement-wrapper").clientWidth + 460,
                 height: 150,
-                allow: "microphone; camera",
+                allow: "microphone",
                 parentNode: document.getElementById("jitsi"),
-                configOverwrite: { prejoinPageEnabled: false },
+                configOverwrite: {
+                    prejoinPageEnabled: false,
+                    startAudioOnly: true
+                },
                 interfaceConfigOverwrite: {
                     TILE_VIEW_MAX_COLUMNS: 6,
                     SHOW_CHROME_EXTENSION_BANNER: false,
                     TOOLBAR_ALWAYS_VISIBLE: false,
-                    TOOLBAR_BUTTONS: ['microphone', 'camera'],
+                    TOOLBAR_BUTTONS: ['microphone'],
                     HIDE_INVITE_MORE_HEADER: true
                 }
             }
